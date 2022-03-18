@@ -1,17 +1,17 @@
 <template>
     <form 
         @submit.prevent="addTodo()"
-        class="justify-center w-full mt-2"
+        class="justify-center w-full mt-2 text-xl overflow-visible"
         >
         <div class="relative">
             <input 
                 type="text" 
-                class="h-14 p-4 w-full pr-20 rounded-lg z-0 shadow mt-2 mb-2 focus:shadow focus:outline-none" 
-                placeholder="Search anything..."
+                class="p-8 w-full pr-20 rounded-lg z-0 border border-indigo-900 mt-2 mb-2 focus:shadow focus:outline-none" 
+                placeholder="Add todo..."
                 v-model="localTodoInput"
             >
-            <div class="absolute top-2 right-2">
-                <input type="submit" value="Add todo" class="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600" />
+            <div class="absolute top-6 right-4">
+                <input type="submit" value="Add todo" class="cursor-pointer p-4 text-white rounded-lg bg-red-500 hover:bg-red-600" />
             </div>
         </div>
     </form>
@@ -34,13 +34,15 @@ export default {
 
         const addTodo = () => {            
 
+            // add to store
             let todoPayload = {
                 todo: localTodoInput.value,
                 time: + new Date(),
                 completed: false
             }
-
             store.addToDo(todoPayload)  
+
+            // reset input
             localTodoInput.value = ''          
         }
 

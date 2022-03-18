@@ -1,16 +1,20 @@
 export function useTime() {
 
-    // change timestamp to pretty format
-    function prettyData(timestamp : number) : string {
+    // change timestamp to pretty date format
+    function prettyDate(timestamp : number) : string {
         var date = new Date(timestamp)
+        return  date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear()              
+    }
 
-        return  date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " "
-                + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-                  
+    // convert timestamp to time
+    function prettyTime(timestamp : number) : string {
+        var date = new Date(timestamp)
+        return  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()                
     }
 
     return {
-        prettyData
+        prettyDate,
+        prettyTime
     }
 
 }

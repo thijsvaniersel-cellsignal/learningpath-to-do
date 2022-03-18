@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p v-if="store.errors.length > 0">{{ store.errors }}</p>
         <div v-for="(todo, index) in store.todos" :key="index">            
             <Todo :todo="todo"/>            
         </div>

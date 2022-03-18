@@ -41,7 +41,8 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
     '@nuxtjs/composition-api/module',
-    '@pinia/nuxt' 
+    '@pinia/nuxt',
+    '@nuxtjs/svg'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

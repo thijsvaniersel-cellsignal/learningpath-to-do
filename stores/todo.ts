@@ -9,12 +9,12 @@ export const useTodoStore = defineStore('todo', {
         return {          
           todos: [
             {
-                todo: 'Thijs',
+                todo: 'Fix my bicylce',
                 time: 1647599347311,
                 completed: false 
             },
             {
-                todo: 'Saskia',
+                todo: 'Make dinner',
                 time: 1647599326119,
                 completed: false 
             }            
@@ -26,7 +26,7 @@ export const useTodoStore = defineStore('todo', {
     actions: {
         addToDo(todo : TodoObject){
             // check for empy string
-            if(Object.keys(todo).length == 0){
+            if(todo.todo.length == 0){
                 this.errors = 'Do not add empty to do'
                 return
             }
