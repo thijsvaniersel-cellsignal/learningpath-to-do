@@ -1,11 +1,16 @@
 <template>
-  <Tutorial/>
+  <div class="container">
+      <div class="p-2"> 
+        <Input />
+        <List />
+      </div>
+  </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
+// components
+import Input from '@/components/input.vue'
+import List from '@/components/list.vue'
 
-export default Vue.extend({
-  name: 'IndexPage'
-})
+
 </script>
