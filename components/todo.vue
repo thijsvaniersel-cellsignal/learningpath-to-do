@@ -7,7 +7,7 @@
                 <Checked v-if="todo.completed == true" />                
                 <Unchecked v-else />                
             </a>            
-            <p class="text-xl text-indigo-900 ml-4">{{ todo.todo }}</p>
+            <p @click="store.todoChangeStatus(todo)" class="cursor-pointer block text-xl text-indigo-900 ml-4">{{ todo.todo }}</p>
         </div>
         <div class="text-left">
             <p class="text-sm">

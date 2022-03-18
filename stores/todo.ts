@@ -9,7 +9,7 @@ export const useTodoStore = defineStore('todo', {
         return {          
           todos: [
             {
-                todo: 'Fix my bicylce',
+                todo: 'Fix my bicycle',
                 time: 1647599347311,
                 completed: false 
             },
