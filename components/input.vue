@@ -7,11 +7,11 @@
             <input 
                 type="text" 
                 class="p-8 w-full pr-20 rounded-lg z-0 border border-indigo-900 mt-2 mb-2 focus:shadow focus:outline-none" 
-                placeholder="Add todo..."
+                placeholder="Write a todo..."
                 v-model="localTodoInput"
             >
             <div class="absolute top-6 right-4">
-                <input type="submit" value="Add todo" class="cursor-pointer p-4 text-white rounded-lg bg-red-500 hover:bg-red-600" />
+                <input type="submit" value="Add todo" class="cursor-pointer p-4 text-white rounded-lg bg-purple-900 hover:bg-purple-700" />
             </div>
         </div>
     </form>

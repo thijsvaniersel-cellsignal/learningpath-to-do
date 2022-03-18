@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia'
 
 // Types
-import { TodoStateInterface, TodoObject } from '@/types/todo-types'
+import { TodoStateInterface, TodoObject, Dropresult } from '@/types/todo-types'
 
 export const useTodoStore = defineStore('todo', {
     state: () : TodoStateInterface => {
@@ -14,10 +14,10 @@ export const useTodoStore = defineStore('todo', {
                 completed: false 
             },
             {
-                todo: 'Make dinner',
+                todo: 'Create demo project with TypeScript and Nuxt 2',
                 time: 1647599326119,
-                completed: false 
-            }            
+                completed: true 
+            }                       
           ],
           errors: ''
         }
@@ -61,6 +61,14 @@ export const useTodoStore = defineStore('todo', {
                 return el.todo == todo.todo
             })  
             return index
+        },
+        changeIndex(dropresult : Dropresult) {
+            let fromIndex : number = dropresult.removedIndex
+            let toIndex : number = dropresult.addedIndex
+            
+            // cut out element
+            const element = this.todos.splice(fromIndex, 1)[0];            
+            this.todos.splice(toIndex, 0, element); 
         }
     }
 })
