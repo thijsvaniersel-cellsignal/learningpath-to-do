@@ -8,7 +8,7 @@
                 Not completed {{ uncompleted }}
             </p>               
         </div>        
-        <div v-if="todoStore.todos.length > 0">
+        <div v-if="todoStore.todos.length > 0" class="nav-buttons">
             <a @click="deleteAll">Delete all</a>
             <a @click="completeAll">Complete all</a>
         </div>        
@@ -59,5 +59,10 @@ p {
 }
 .completed {
     color: green;
+}
+.nav-buttons a {
+    border: 1px solid black;
+    padding: .5em;
+    cursor: pointer;
 }
 </style>
