@@ -4,6 +4,9 @@ import { defineStore } from 'pinia'
 // Types
 import { TodoStateInterface, TodoObject, Dropresult } from '@/types/todo-types'
 
+// Other store
+import { useUserStore } from './user'
+
 export const useTodoStore = defineStore('todo', {
     state: () : TodoStateInterface => {
         return {          
@@ -51,10 +54,17 @@ export const useTodoStore = defineStore('todo', {
             }
         },
         todoChangeStatus(todo : TodoObject) {
+            // change status
             let index = this.getTodoIndex(todo)
             if(index !== -1){
                 this.todos[index].completed = !todo.completed
             }
+
+            // if all todos completed, change list status to true, otherwise to false
+            this.todos.filter((el) => el.completed == false).length == 0 
+                ? useUserStore().changeListStatus(true) 
+                : useUserStore().changeListStatus(false)
+            
         },
         getTodoIndex(todo : TodoObject) {
             let index = this.todos.findIndex((el) => {
@@ -69,6 +79,21 @@ export const useTodoStore = defineStore('todo', {
             // cut out element
             const element = this.todos.splice(fromIndex, 1)[0];            
             this.todos.splice(toIndex, 0, element); 
+        },
+        deleteAllTodo(){
+            this.todos = []
+            useUserStore().listCompleted = true
+        },
+        completeAllTodo() {
+            this.todos = this.todos.map((el) => {
+                el.completed = true
+                return el
+            })
+            useUserStore().listCompleted = true
         }
-    }
+    },
+
+    getters: {
+        countUncompleted: (state) => state.todos.filter((el) => el.completed == false).length
+    },
 })

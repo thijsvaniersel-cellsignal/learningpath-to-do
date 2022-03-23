@@ -91,7 +91,9 @@
 .todo svg path {
     fill: #312e81;
 }
+</style>
 
+<style scoped>
 .completed {
     opacity: .5;
 }
