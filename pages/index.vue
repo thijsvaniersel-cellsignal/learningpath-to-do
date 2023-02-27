@@ -11,6 +11,10 @@
   </div>
 </template>
 
+<!-- 
+  special sugar synax 
+  We don't use this in the monorepo, maybe when we switch to Nuxt3
+-->
 <script setup lang="ts">
 // components
 import Status from '@/components/status.vue'

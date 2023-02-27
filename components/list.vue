@@ -9,12 +9,20 @@
 </template>
 
 <script lang="ts">
+// Components
 import Todo from '@/components/todo.vue'
+
+// Store
 import { useTodoStore } from '@/stores/todo'
 
+// Types
 import { Dropresult } from '@/types/todo-types'
 
 export default {
+    components: {
+        Todo
+    },
+
     setup() {
         
         // store
@@ -26,8 +34,7 @@ export default {
         }
 
         return {
-            store,
-            Todo,
+            store,            
             onDrop
         }
     }

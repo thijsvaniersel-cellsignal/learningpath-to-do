@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="todo flex items-center grid grid-cols-6 gap-4 p-2 shadow-sm mb-2 mt-2"
+        class="todo items-center grid grid-cols-6 gap-4 p-2 shadow-sm mb-2 mt-2"
         :class="todo.completed ? 'completed' : ''"
         @mouseover="hover = true"
         @mouseleave="hover = false"
@@ -35,7 +35,7 @@
     import Drag from "@/assets/svg/drag.svg?inline";
 
     // refs
-    import { ref } from '@nuxtjs/composition-api'
+    import { ref, Ref } from '@nuxtjs/composition-api'
 
     // store
     import { useTodoStore } from '@/stores/todo'
@@ -66,7 +66,7 @@
             const { prettyDate, prettyTime } = useTime()
             
             // Reactive vars
-            const hover = ref('')
+            const hover: Ref<boolean> = ref(false)
 
             return {
                 hover,
@@ -78,6 +78,10 @@
     }
 </script>
 
+<!-- 
+    you can use two style blocks 
+    one with scoped css and the other unscoped   
+-->
 <style>
 /* .todo {
     transition: .5s all;    
