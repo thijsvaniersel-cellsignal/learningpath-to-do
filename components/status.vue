@@ -16,6 +16,9 @@
 </template>
 
 <script lang="ts">
+import { computed } from "@nuxtjs/composition-api"
+
+// Stores
 import { useUserStore } from '@/stores/user'
 import { useTodoStore } from '@/stores/todo'
 
@@ -24,6 +27,10 @@ export default {
         // store
         const userStore = useUserStore()
         const todoStore = useTodoStore()
+        
+        // computed
+        const uncompleted = computed(() => useTodoStore().countUncompleted)
+        const completed = computed(() => useUserStore().listCompleted)
 
         // methods 
         const deleteAll = () => {
@@ -38,18 +45,11 @@ export default {
             userStore,
             todoStore,
             deleteAll,
-            completeAll
+            completeAll,
+            uncompleted,
+            completed
         }
     },
-
-    computed: {
-        uncompleted() {
-            return useTodoStore().countUncompleted
-        },
-        completed() {
-            return useUserStore().listCompleted
-        }
-    }
 }
 </script>
 
