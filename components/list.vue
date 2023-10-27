@@ -1,11 +1,9 @@
 <template>
-    <div>
-        <Container @drop="onDrop">            
-          <Draggable v-for="(todo, index) in store.todos" :key="index" :drag-class="'dragging'">
-              <Todo :todo="todo"/> 
-          </Draggable>
-        </Container>
-    </div>
+    <Container @drop="onDrop">            
+        <Draggable v-for="(todo, index) in store.todos" :key="index" :drag-class="'dragging'">
+            <Todo :todo="todo"/> 
+        </Draggable>
+    </Container>
 </template>
 
 <script lang="ts">

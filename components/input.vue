@@ -4,9 +4,9 @@
         class="justify-center w-full mt-2 text-xl overflow-visible"
         >
         <div class="relative">
-            <input 
+            <input                 
                 type="text" 
-                class="p-8 w-full pr-20 rounded-lg z-0 border border-indigo-900 mt-2 mb-2 focus:shadow focus:outline-none" 
+                class="todo-input" 
                 placeholder="Write a todo..."
                 v-model="localTodoInput"
             >
@@ -54,3 +54,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.todo-input {
+    @apply p-8 w-full pr-20 rounded-lg z-0 border border-indigo-900 mt-2 mb-2 focus:shadow focus:outline-none;
+}
+</style>
