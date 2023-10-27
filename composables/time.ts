@@ -1,3 +1,4 @@
+// Time composable
 export function useTime() {
 
     // change timestamp to pretty date format
