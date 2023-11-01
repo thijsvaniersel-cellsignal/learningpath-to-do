@@ -1,6 +1,6 @@
 <template>
     <div v-if="store.errors.length > 0" class="w-full text-center p-2 bg-red-300 rounded shadow">
-        <p class="text-red-700">
+        <p class="text-red-600">
             {{ store.errors }}
         </p>
     </div>
